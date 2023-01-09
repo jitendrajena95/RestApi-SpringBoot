@@ -17,11 +17,11 @@ public class StudentServiceImpl implements IStudentService {
     @Autowired
     private StudentRepository repo;
 
-    private Student std;
+  //  private Student std;
     @Override
     public Integer saveStudent(Student std) {
         std = repo.save(std);
-        return std.getStudentId();
+       return std.getStudentId();
     }
 
     @Override

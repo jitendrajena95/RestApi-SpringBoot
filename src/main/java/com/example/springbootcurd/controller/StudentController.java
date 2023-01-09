@@ -1,11 +1,8 @@
 package com.example.springbootcurd.controller;
 
-import java.util.*;
 import java.util.List;
 import com.example.springbootcurd.entity.Student;
 import com.example.springbootcurd.service.IStudentService;
-import jakarta.persistence.Entity;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,23 +10,27 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("student")
-@Slf4j
 public class StudentController {
+
 
     @Autowired
     private IStudentService service;
-    private Student std;
+   
 
     //save Student
     @PostMapping("/save")
     public ResponseEntity<String> saveStudent(@RequestBody Student std) {
-        log.info("Saving Student info");
+       // log.info("Saving Student info");
         ResponseEntity<String> response = null;
-
+    try {
         //call the Service
         Integer id = service.saveStudent(std);
-        String msg = "Student with id ' " + id + " ' is saved";
+        String msg = "Student with id '  " +  id  + "  ' is saved";
         return response = new ResponseEntity<String>(msg, HttpStatus.OK);
+    }catch(Exception e){
+       //  log.error("error message:", e);
+    }
+    return response;
     }
 
     //get All Student

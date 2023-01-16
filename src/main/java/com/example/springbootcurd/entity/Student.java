@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @Data
 @Entity
 @Slf4j
-@Table(name = "Registration")
+@Table(name = "Registration Page")
 public class Student    {
 
     @Id
